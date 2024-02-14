@@ -1,0 +1,47 @@
+<h1 class="mt-4">Formulário de Clientes</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+<div class="container">
+  <form #clienteForm="ngForm" (ngSubmit)="onSubmit()" >
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">ID:</label>
+          <input type="text" class="form-control" [ngModel]="cliente.id" name="id" disabled="true"
+            />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Data Cadastro:</label>
+          <input type="text" class="form-control"
+          [ngModel]="cliente.dataCadastro" name="dataCadastro" disabled="true">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="" >Nome: *</label>
+          <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="" >CPF: *</label>
+          <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success" >
+          <i class="fa fa-save"></i> Salvar
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>
