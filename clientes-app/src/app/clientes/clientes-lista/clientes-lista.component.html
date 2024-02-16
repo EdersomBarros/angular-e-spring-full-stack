@@ -1,0 +1,73 @@
+<h1 class="mt-4"><i class="fas fa-address-book"></i> Lista de Clientes</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+        {{mensagemSucesso}}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-warning" (click)="novoCadastro()">
+        <i class="fa fa-plus"></i> Novo</button>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Cadastro</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.dataCadastro }}</td>
+            <td>
+              <button class="btn btn-primary" routerLink="/clientes-form/{{cliente.id}}">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="preparaDelacao(cliente)"
+               data-toggle="modal" data-target="#modalDelecao">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirma</h4>
+        </div>
+        <div class="modal-body" *ngIf="clienteSelecionado">
+          Deseja Excluir o(a) Cliente: {{ clienteSelecionado.nome }} ?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" (click)="deletarCliente()"
+            data-dismiss="modal">Sim</button>
+            <button  class="btn btn-default" data-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
