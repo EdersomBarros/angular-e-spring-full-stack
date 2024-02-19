@@ -41,8 +41,8 @@ export class ClientesListaComponent implements OnInit {
           this.mensagemSucesso = 'Cliente Deletado com Sucesso!'
           this.ngOnInit();
         },
-        erro => this.mensagemErro='Ocorreu um erro ao deletar o Cliente :(')
+        erro => this.mensagemErro='Ocorreu um erro ao deletar o Cliente :'
 
-  }
+  )}
 
 }
